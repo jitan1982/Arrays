@@ -13,7 +13,7 @@ public class SortArrayOf012 {
         int mid = 0;
         int end = nums.length - 1;
         while(mid <= end){
-        	if(nums[mid] == 0){//if found 0 then swap with mid and bring to 0 to the  front
+        	if(nums[mid] == 0){//if found 0 then swap with start and bring to 0 to the  front
     			swap(nums, start,mid);
     			start++;
     			mid++;
