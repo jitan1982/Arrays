@@ -1,0 +1,32 @@
+package com.leetcode.array;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
+
+//https://leetcode.com/problems/kth-largest-element-in-an-array/
+//GIVEN AN ARRAY FIND THE KTH LARGEST ELEMENT (AFTER SORTING)
+public class KthLargestElement {
+	public static void main(String[] args) {
+		System.out.println(findKthLargest2(new int[]{3,2,1,5,6,4} , 2));//5
+	}
+	
+	//nlogn--mergesort
+	public static int findKthLargest1(int[] nums, int k) {
+       Arrays.sort(nums);
+       return nums[nums.length-k];
+    }
+	
+	//heap sort better impl
+	public static int findKthLargest2(int[] nums, int k) {
+	     PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());//default is asc order
+	     
+	     for(int i : nums)
+	    	 pq.add(i);//auto keep the max elt at top in reverse order 
+	     //System.out.println(pq);
+	     
+	     for(int i=0; i < k-1; i++)//remove all elts before kth elt
+	    	 pq.poll();
+	     return (int) pq.peek();
+	}
+}
