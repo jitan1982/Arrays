@@ -1,3 +1,5 @@
+//GIVEN AR ARRAY FIND THE ELEMENT WHICH APPEARS MORE THAN HALF OF THE ARRAY LENGTH
+//leetcode.com/problems/majority-element/
 public class MajorityElement {
 
 	public static void main(String[] args) {
@@ -19,7 +21,7 @@ public class MajorityElement {
 				majorityElt = nums[i];
 				//count = 1;
 			}
-			//2.if 1st element is found while iterating then decrease count
+			//2.if 1st element is not found while iterating then decrease count
 			else
 				count--;
 		}
