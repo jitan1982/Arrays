@@ -1,0 +1,34 @@
+package com.leetcode.array;
+
+import java.util.Arrays;
+
+//https://leetcode.com/problems/sort-colors/
+public class SortArrayOf012 {
+	public static void main(String[] args) {
+		sortColors(new int[] {2,0,2,1,1,0});//[0,0,1,1,2,2]
+    sortColors(new int[] {2,0,1});//[0,1,2]
+	}
+	public static void sortColors(int[] nums) {
+        int start = 0;
+        int mid = 0;
+        int end = nums.length - 1;
+        while(mid <= end){
+        	if(nums[mid] == 0){//if found 0 then swap with mid and bring to 0 to the  front
+    			swap(nums, start,mid);
+    			start++;
+    			mid++;
+        	}else if(nums[mid] == 1){//no action for middle as we always need 1 as middle elements
+        		mid++;
+        	}else{//if found 2 then swap the mid element with end element and bring 2 to the end
+        		swap(nums, mid,end);
+    			end--;
+        	}
+        }
+        System.out.println(Arrays.toString(nums));
+    }
+	private static void swap(int[] nums, int i, int j) {
+		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}
+}
